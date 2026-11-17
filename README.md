@@ -2,7 +2,7 @@
 
 **Neural networks you can read.** Neural FCA builds the architecture of a neural network from a *formal concept lattice*: every hidden neuron is a human-readable concept ("thal = 3 AND cp = 4"), and every connection follows a subset relation between concepts. The result is a classifier whose decisions can be traced step by step, while staying competitive with black-box models.
 
-Applied to heart disease diagnosis (UCI Cleveland), the optimized Neural FCA reaches **F1 = 0.847**, outperforming tuned XGBoost, SVM and Random Forest baselines.
+Applied to heart disease diagnosis ([UCI Heart Disease, Cleveland](https://archive.ics.uci.edu/dataset/45/heart+disease)), the optimized Neural FCA reaches **F1 = 0.847**, outperforming tuned XGBoost, SVM and Random Forest baselines.
 
 ## Highlights
 
@@ -27,6 +27,12 @@ Heart Disease UCI (Cleveland), binary target (healthy / sick), test F1:
 | Logistic Regression | 0.7308 | Linear baseline |
 
 Cross-validated F1: 0.8053 ± 0.0459 for the improved Neural FCA and 0.82 ± 0.0605 for the bagging ensemble. The optimizations also make training about 30% faster.
+
+## Dataset
+
+[Heart Disease (Cleveland)](https://archive.ics.uci.edu/dataset/45/heart+disease) from the UCI Machine Learning Repository: 303 patients, 13 clinical features. Rows with missing values are dropped (297 remain), and the target is binarized: 0 = no disease, 1 = disease (original classes 1–4).
+
+The data is downloaded automatically by `neural_fca.datasets.load_heart_disease()` from [`processed.cleveland.data`](https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.cleveland.data). The same cleaned dataset is also available on Kaggle: [Heart Disease Cleveland UCI](https://www.kaggle.com/datasets/cherngs/heart-disease-cleveland-uci).
 
 ## How it works
 
